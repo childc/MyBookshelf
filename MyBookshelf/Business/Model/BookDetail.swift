@@ -8,7 +8,6 @@
 import Foundation
 
 struct BookDetail: Decodable {
-    let error: String
     let title: String
     let subtitle: String
     let authors: String
@@ -22,5 +21,5 @@ struct BookDetail: Decodable {
     let price: String
     let image: String
     let url: String
-    let pdf: [[String: String]]
+    let pdf: [[String: String]]?
 }

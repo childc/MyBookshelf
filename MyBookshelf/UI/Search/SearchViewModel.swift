@@ -15,7 +15,7 @@ final class SearchViewModel {
     }
     
     func search(query: String, page: Int? = nil) {
-        BookShelfApi.search(query: query, page: page).request { [weak self] result in
+        MyBookShelfApi.search(query: query, page: page).request { [weak self] result in
             guard case let .success(recvData) = result else { return }
             guard let searchResult = try? JSONDecoder().decode(SearchResult.self, from: recvData) else {
                 print("cannot parse data: \(String(data: recvData, encoding: .ascii) ?? "no json data")")
@@ -38,7 +38,7 @@ final class SearchViewModel {
     }
     
     func retrieveNewBooks() {
-        BookShelfApi.new.request { [weak self] result in
+        MyBookShelfApi.new.request { [weak self] result in
             guard case let .success(recvData) = result,
                   let searchResult = try? JSONDecoder().decode(SearchResult.self, from: recvData) else { return }
             

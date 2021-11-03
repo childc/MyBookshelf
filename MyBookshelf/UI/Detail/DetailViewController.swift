@@ -8,11 +8,27 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    var isbn13: String?
+    let viewModel = DetailViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        bindViewModel()
+        
+        if let isbn13 = isbn13 {
+            viewModel.retrieveBookDetail(isbn13: isbn13)
+        }
+    }
+    
+    private func bindViewModel() {
+        viewModel.bookDetail.bind { [weak self] bookDetail in
+            DispatchQueue.main.async { [weak self] in
+                self?.titleLabel.text = bookDetail?.title ?? ""
+            }
+        }
     }
     
 

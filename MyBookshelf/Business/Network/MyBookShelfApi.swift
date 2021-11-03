@@ -1,5 +1,5 @@
 //
-//  BookShelfApi.swift
+//  MyBookShelfApi.swift
 //  MyBookshelf
 //
 //  Created by childc on 2021/11/03.
@@ -7,10 +7,10 @@
 
 import Foundation
 
-enum BookShelfApi: CustomStringConvertible {
+enum MyBookShelfApi: CustomStringConvertible {
     case search(query: String, page: Int?)
     case new
-    case detail
+    case detail(isbn13: String)
     
     var description: String {
         switch self {
@@ -24,15 +24,17 @@ enum BookShelfApi: CustomStringConvertible {
     }
 }
 
-extension BookShelfApi {
+extension MyBookShelfApi {
     var baseUrl: String {
         return "https://api.itbook.store/1.0"
     }
     
     var url: String {
         switch self {
-        case .detail, .new:
+        case .new:
             return [baseUrl, description].joined(separator: "/")
+        case let .detail(isbn13):
+            return [baseUrl, description, isbn13].joined(separator: "/")
         case let .search(query, page):
             let url = [baseUrl, description, query].joined(separator: "/")
             guard let page = page else {
@@ -52,7 +54,7 @@ extension BookShelfApi {
     
     func request(completion: ((Result<Data, Error>) -> Void)? = nil) {
         guard let url = URL(string: url) else {
-            completion?(.failure(BookShelfApiError.unsupportedUrl))
+            completion?(.failure(MyBookShelfApiError.unsupportedUrl))
             return
         }
         
@@ -71,8 +73,8 @@ extension BookShelfApi {
             guard let httpResponse = response as? HTTPURLResponse,
                   httpResponse.statusCode == 200,
                   let data = data else {
-                      print("response: \(response.debugDescription), error: \(BookShelfApiError.retrieveFailed)")
-                      completion?(.failure(BookShelfApiError.retrieveFailed))
+                      print("response: \(response.debugDescription), error: \(MyBookShelfApiError.retrieveFailed)")
+                      completion?(.failure(MyBookShelfApiError.retrieveFailed))
                       return
                   }
             

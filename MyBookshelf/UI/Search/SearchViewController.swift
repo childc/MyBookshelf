@@ -41,6 +41,18 @@ class SearchViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "ShowDetail":
+            if let detailVC = segue.destination as? DetailViewController,
+               let selectedRow = tableView.indexPathForSelectedRow?.row {
+                detailVC.isbn13 = viewModel.isbn13(index: selectedRow)
+            }
+            
+        default:
+            break
+        }
+    }
 
     /*
     // MARK: - Navigation

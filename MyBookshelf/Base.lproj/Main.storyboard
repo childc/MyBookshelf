@@ -16,10 +16,26 @@
                     <view key="view" contentMode="scaleToFill" id="hRP-qF-P6g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxa-v4-MTv">
+                                <rect key="frame" x="10" y="108" width="394" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="UcA-cp-sjf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zxa-v4-MTv" firstAttribute="leading" secondItem="UcA-cp-sjf" secondAttribute="leading" constant="10" id="EpN-2h-EIN"/>
+                            <constraint firstItem="zxa-v4-MTv" firstAttribute="top" secondItem="UcA-cp-sjf" secondAttribute="top" constant="20" id="I9j-6O-nta"/>
+                            <constraint firstItem="UcA-cp-sjf" firstAttribute="trailing" secondItem="zxa-v4-MTv" secondAttribute="trailing" constant="10" id="yJ7-uk-qj9"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yEG-Vb-Qpz"/>
+                    <connections>
+                        <outlet property="titleLabel" destination="zxa-v4-MTv" id="YzX-wc-ml4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mvt-qW-80v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -60,7 +76,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPI-vf-AKo">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPI-vf-AKo">
                                                     <rect key="frame" x="10" y="11.5" width="394" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -75,7 +91,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="titleLabel" destination="HPI-vf-AKo" id="X0c-iH-Fe6"/>
-                                            <segue destination="9Rf-gD-MWU" kind="show" id="Ocr-yM-kfM"/>
+                                            <segue destination="9Rf-gD-MWU" kind="show" identifier="ShowDetail" id="Ocr-yM-kfM"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
