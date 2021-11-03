@@ -12,6 +12,10 @@
 		732A65152732BA360030B38D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 732A65132732BA360030B38D /* Main.storyboard */; };
 		732A65172732BA370030B38D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 732A65162732BA370030B38D /* Assets.xcassets */; };
 		732A651A2732BA370030B38D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 732A65182732BA370030B38D /* LaunchScreen.storyboard */; };
+		732A65262732BCBF0030B38D /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732A65242732BCBF0030B38D /* SearchResult.swift */; };
+		732A65272732BCBF0030B38D /* BookDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732A65252732BCBF0030B38D /* BookDetail.swift */; };
+		732A652A2732BCC80030B38D /* BookShelfApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732A65282732BCC80030B38D /* BookShelfApi.swift */; };
+		732A652B2732BCC80030B38D /* BookShelfApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732A65292732BCC80030B38D /* BookShelfApiError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		732A65162732BA370030B38D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		732A65192732BA370030B38D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		732A651B2732BA370030B38D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		732A65242732BCBF0030B38D /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		732A65252732BCBF0030B38D /* BookDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetail.swift; sourceTree = "<group>"; };
+		732A65282732BCC80030B38D /* BookShelfApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookShelfApi.swift; sourceTree = "<group>"; };
+		732A65292732BCC80030B38D /* BookShelfApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookShelfApiError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 		732A650C2732BA360030B38D /* MyBookshelf */ = {
 			isa = PBXGroup;
 			children = (
+				732A65212732BC710030B38D /* Business */,
 				732A650D2732BA360030B38D /* AppDelegate.swift */,
 				732A65112732BA360030B38D /* ViewController.swift */,
 				732A65132732BA360030B38D /* Main.storyboard */,
@@ -62,6 +71,33 @@
 				732A651B2732BA370030B38D /* Info.plist */,
 			);
 			path = MyBookshelf;
+			sourceTree = "<group>";
+		};
+		732A65212732BC710030B38D /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				732A65232732BC810030B38D /* Network */,
+				732A65222732BC7C0030B38D /* Model */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		732A65222732BC7C0030B38D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				732A65252732BCBF0030B38D /* BookDetail.swift */,
+				732A65242732BCBF0030B38D /* SearchResult.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		732A65232732BC810030B38D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				732A65282732BCC80030B38D /* BookShelfApi.swift */,
+				732A65292732BCC80030B38D /* BookShelfApiError.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +171,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				732A652A2732BCC80030B38D /* BookShelfApi.swift in Sources */,
 				732A65122732BA360030B38D /* ViewController.swift in Sources */,
+				732A65272732BCBF0030B38D /* BookDetail.swift in Sources */,
+				732A652B2732BCC80030B38D /* BookShelfApiError.swift in Sources */,
+				732A65262732BCBF0030B38D /* SearchResult.swift in Sources */,
 				732A650E2732BA360030B38D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
